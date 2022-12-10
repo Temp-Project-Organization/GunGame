@@ -29,7 +29,6 @@ public class NavEnemyAI : MonoBehaviour
 
     private void Start()
     {
-        index = 0;
     }
 
     private void Update()
@@ -41,10 +40,10 @@ public class NavEnemyAI : MonoBehaviour
         if (aiAgent.velocity.sqrMagnitude >= 0.04f         // NavMeshAgent가 이동하고 있고, 목적지 도착 여부 계산
             && aiAgent.remainingDistance <= 1.0f)
         {
-            index++;
+            index = Random.Range(0, wayPoints.Count);
         }
 
-        if (index > 1)
+        if (index > wayPoints.Count)
         {
             index = 0;
         }
